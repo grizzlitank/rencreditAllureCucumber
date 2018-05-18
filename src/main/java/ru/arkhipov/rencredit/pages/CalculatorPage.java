@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.arkhipov.rencredit.steps.BaseSteps;
 
@@ -59,16 +60,9 @@ public class CalculatorPage extends BasePageObject{
                 fillField(inputAmount, value);
                 break;
             case  "Срок":
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                period.click();
-
-                waiting(BaseSteps.getDriver().findElement(By.xpath(".//li[text()='" + value + "']")));
-                BaseSteps.getDriver().findElement(By.xpath(".//li[text()='" + value + "']")).click();
-                break;
+                WebElement selectElem = BaseSteps.getDriver().findElement(By.tagName("select"));
+                Select select = new Select(selectElem);
+                select.selectByVisibleText(value);
             case  "Пополнение":
                 fillField(inputReplenish, value);
                 break;
@@ -80,12 +74,6 @@ public class CalculatorPage extends BasePageObject{
                     checkBox1.click();
                     checkBox2.click();
                 }
-
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
                 break;
             default:  throw new AssertionError("Поле '"+fieldName+"' не объявлено на странице");
         }
@@ -94,15 +82,19 @@ public class CalculatorPage extends BasePageObject{
     public void checkField(String fieldName, String value){
         switch (fieldName){
             case  "Ставка":
+                waiting(".//span[@class='js-calc-rate']", value);
                 Assert.assertEquals("Поле верно", value, calcRate.getText());
                 break;
             case  "Начислено":
+                waiting(".//span[@class='js-calc-earned']", value);
                 Assert.assertEquals("Поле верно", value, calcEarned.getText());
                 break;
             case  "Пополнение":
+                waiting(".//span[@class='js-calc-replenish']", value);
                 Assert.assertEquals("Поле верно", value, calcReplenish.getText());
                 break;
             case  "К снятию":
+                waiting(".//span[@class='js-calc-result']", value);
                 Assert.assertEquals("Поле верно", value, calcResult.getText());
                 break;
             default:  throw new AssertionError("Поле '"+fieldName+"' не объявлено на странице");

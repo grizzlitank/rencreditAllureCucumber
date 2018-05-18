@@ -2,6 +2,7 @@ package ru.arkhipov.rencredit.pages;
 
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -37,9 +38,9 @@ public class BasePageObject {
         Assert.fail("Не найден элемент коллекции - " + itemName);
     }
 
-    public void waiting(WebElement element){
-        WebDriverWait wait = new WebDriverWait(BaseSteps.getDriver(), 5);
-        wait.until(ExpectedConditions.visibilityOf(element));
+    public void waiting(String xPath, String profit){
+        WebDriverWait wait = new WebDriverWait(BaseSteps.getDriver(), 15);
+        wait.until(ExpectedConditions.textToBe(By.xpath(xPath),profit));
     }
 
 }
