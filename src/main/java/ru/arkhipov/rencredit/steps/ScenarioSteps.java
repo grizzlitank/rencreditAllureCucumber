@@ -4,9 +4,7 @@ import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-/**
- * Created by m.baykova on 13.09.2017.
- */
+
 public class ScenarioSteps {
 
     MainPageSteps mainPageSteps = new MainPageSteps();

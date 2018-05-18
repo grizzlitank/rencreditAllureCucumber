@@ -6,9 +6,7 @@ import io.qameta.allure.Step;
 import ru.arkhipov.rencredit.pages.MainPage;
 
 
-/**
- * Created by Maria on 29.04.2017.
- */
+
 public class MainPageSteps {
 
 

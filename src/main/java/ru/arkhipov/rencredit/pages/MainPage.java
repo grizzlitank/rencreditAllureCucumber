@@ -9,9 +9,7 @@ import ru.arkhipov.rencredit.steps.BaseSteps;
 import java.util.List;
 
 
-/**
- * Created by Maria on 29.04.2017.
- */
+
 public class MainPage extends BasePageObject{
 
 

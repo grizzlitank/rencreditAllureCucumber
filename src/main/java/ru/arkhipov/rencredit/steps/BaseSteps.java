@@ -14,9 +14,7 @@ import ru.arkhipov.rencredit.util.TestProperties;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by Maria on 06.05.2017.
- */
+
 public class BaseSteps {
     protected static WebDriver driver;
     protected static String baseUrl;

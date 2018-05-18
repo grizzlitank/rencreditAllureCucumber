@@ -12,9 +12,7 @@ import ru.arkhipov.rencredit.steps.BaseSteps;
 import java.util.List;
 
 
-/**
- * Created by Maria on 06.05.2017.
- */
+
 public class BasePageObject {
 
 

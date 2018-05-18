@@ -6,9 +6,7 @@ import io.qameta.allure.cucumberjvm.AllureCucumberJvm;
 import ru.arkhipov.rencredit.steps.BaseSteps;
 
 
-/**
- * Created by 777 on 08.05.2017.
- */
+
 public class AllureReporter extends AllureCucumberJvm {
 
     @Override
